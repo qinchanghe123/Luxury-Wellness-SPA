@@ -833,6 +833,86 @@
       width: fit-content;
     }
 
+
+
+    .service-subtitle {
+      margin-top: -0.35rem;
+      color: var(--gold) !important;
+      font-size: 0.82rem !important;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .treatment-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .treatment-tag {
+      border-radius: 999px;
+      padding: 0.42rem 0.68rem;
+      background: rgba(200,164,93,0.1);
+      border: 1px solid rgba(180,136,63,0.18);
+      color: var(--coffee);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .price-list {
+      display: grid;
+      gap: 0.5rem;
+      padding-top: 0.15rem;
+    }
+
+    .price-row {
+      display: grid;
+      grid-template-columns: auto minmax(24px, 1fr) auto;
+      align-items: baseline;
+      gap: 0.6rem;
+      color: var(--brown);
+    }
+
+    .price-row::before {
+      content: "";
+      grid-column: 2;
+      grid-row: 1;
+      border-bottom: 2px dotted rgba(107,81,53,0.34);
+      transform: translateY(-0.18rem);
+    }
+
+    .price-row span,
+    .price-row strong {
+      grid-row: 1;
+      position: relative;
+      z-index: 1;
+      background: rgba(255,255,255,0.8);
+    }
+
+    .price-row span {
+      grid-column: 1;
+      padding-right: 0.15rem;
+      color: var(--coffee);
+      font-weight: 700;
+    }
+
+    .price-row strong {
+      grid-column: 3;
+      padding-left: 0.15rem;
+      font-size: 1rem;
+      color: var(--brown);
+    }
+
+    .price-note {
+      padding: 0.85rem 0.95rem;
+      border-radius: 15px;
+      background: linear-gradient(145deg, rgba(255,250,241,0.92), rgba(245,234,219,0.76));
+      border: 1px solid rgba(180,136,63,0.14);
+      color: var(--muted) !important;
+      font-size: 0.86rem !important;
+    }
+
     /* Gallery */
 
     .gallery-grid {
@@ -1584,174 +1664,139 @@
     <section class="section" id="services">
       <div class="container">
         <span class="eyebrow reveal">Services & Pricing</span>
-        <h2 class="section-title reveal">Default massage menu, presented with calm luxury.</h2>
+        <h2 class="section-title reveal">Massage and wellness services with clear pricing.</h2>
         <p class="section-lead reveal">
-          The following service list uses the default massage directory. Since exact duration and
-          pricing were not provided, each item displays “Please call to confirm” and “Call for Pricing.”
+          Choose the treatment and session length that fits your visit. The menu below reflects the
+          pricing shown on the current Luxury Wellness SPA price list.
         </p>
 
         <div class="services-grid">
+          <!-- Body Massage -->
+          <article class="service-card reveal">
+            <div class="service-media service-carousel">
+              <img class="active" loading="lazy" src="https://i.pinimg.com/1200x/dc/36/fe/dc36feaf9cc11bec29cc3de7834c539e.jpg" alt="Relaxing body massage treatment">
+              <img loading="lazy" src="https://i.pinimg.com/736x/4c/2b/cb/4c2bcb39fbc7189277e8e505c2e1bc8f.jpg" alt="Body massage in a calm spa room">
+              <img loading="lazy" src="https://i.pinimg.com/736x/c0/e8/3f/c0e83fc3058518c785d6cfe1b15da601.jpg" alt="Full body wellness massage">
+              <span class="service-badge">Massage</span>
+            </div>
+            <div class="service-body">
+              <h3>Body Massage</h3>
+              <p>A full-body relaxation service designed to ease everyday tension and support a calmer, lighter feeling.</p>
+              <div class="price-list" aria-label="Body massage prices">
+                <div class="price-row"><span>30 Min</span><strong>$60</strong></div>
+                <div class="price-row"><span>45 Min</span><strong>$70</strong></div>
+                <div class="price-row"><span>60 Min</span><strong>$80</strong></div>
+                <div class="price-row"><span>90 Min</span><strong>$120</strong></div>
+                <div class="price-row"><span>120 Min</span><strong>$160</strong></div>
+              </div>
+              <a href="#booking" class="btn">Book Body Massage</a>
+            </div>
+          </article>
+
           <!-- Foot Reflexology -->
           <article class="service-card reveal">
             <div class="service-media service-carousel">
               <img class="active" loading="lazy" src="https://i.pinimg.com/1200x/6a/df/fe/6adffe5706bdce88dd2d2d0fc6875398.jpg" alt="Foot reflexology massage in a calm spa room">
               <img loading="lazy" src="https://i.pinimg.com/1200x/71/a4/b7/71a4b75a19fbadf33bc6dc340e91340c.jpg" alt="Foot reflexology spa treatment">
               <img loading="lazy" src="https://i.pinimg.com/1200x/2b/85/42/2b8542fd0d099c9771bb5b332d6f51a9.jpg" alt="Relaxing foot reflexology session">
-              <img loading="lazy" src="https://i.pinimg.com/736x/76/48/7c/76487c07076e4b41fcce7c4ea35e2005.jpg" alt="Foot wellness reflexology treatment">
-              <span class="service-badge">Carousel</span>
+              <span class="service-badge">Reflexology</span>
             </div>
             <div class="service-body">
               <h3>Foot Reflexology</h3>
-              <p>A focused foot relaxation experience suited for guests who spend long hours standing, walking or moving throughout the day.</p>
-              <div class="service-meta">
-                <div class="meta-box"><span>Duration</span><strong>Please call to confirm</strong></div>
-                <div class="meta-box"><span>Pricing</span><strong>Call for Pricing</strong></div>
+              <p>A focused foot treatment for guests seeking relief from tired feet and a soothing, grounding spa experience.</p>
+              <div class="price-list" aria-label="Foot reflexology prices">
+                <div class="price-row"><span>30 Min</span><strong>$50</strong></div>
+                <div class="price-row"><span>45 Min</span><strong>$60</strong></div>
+                <div class="price-row"><span>60 Min</span><strong>$70</strong></div>
               </div>
-              <ul class="service-list">
-                <li>Ideal for tired feet and daily fatigue.</li>
-                <li>Supports a quiet, grounding spa experience.</li>
-              </ul>
-              <a href="#booking" class="btn">Request This Service</a>
-            </div>
-          </article>
-
-          <!-- Body Work -->
-          <article class="service-card reveal">
-            <div class="service-media service-carousel">
-              <img class="active" loading="lazy" src="https://i.pinimg.com/1200x/dc/36/fe/dc36feaf9cc11bec29cc3de7834c539e.jpg" alt="Body work massage in a relaxing spa setting">
-              <img loading="lazy" src="https://i.pinimg.com/736x/4c/2b/cb/4c2bcb39fbc7189277e8e505c2e1bc8f.jpg" alt="Body work massage room atmosphere">
-              <img loading="lazy" src="https://i.pinimg.com/736x/c0/e8/3f/c0e83fc3058518c785d6cfe1b15da601.jpg" alt="Relaxing body work massage">
-              <img loading="lazy" src="https://i.pinimg.com/736x/21/8f/4c/218f4cd988ca278667bd28ff54a577ff.jpg" alt="Body work wellness service">
-              <span class="service-badge">Carousel</span>
-            </div>
-            <div class="service-body">
-              <h3>Body Work</h3>
-              <p>A full-body relaxation option designed for general tension, daily stress and the need for a quiet reset.</p>
-              <div class="service-meta">
-                <div class="meta-box"><span>Duration</span><strong>Please call to confirm</strong></div>
-                <div class="meta-box"><span>Pricing</span><strong>Call for Pricing</strong></div>
-              </div>
-              <ul class="service-list">
-                <li>Suitable for overall tiredness and stress.</li>
-                <li>Balanced, calming and easy to request.</li>
-              </ul>
-              <a href="#booking" class="btn">Request This Service</a>
+              <a href="#booking" class="btn">Book Foot Reflexology</a>
             </div>
           </article>
 
           <!-- Facial -->
           <article class="service-card reveal">
             <div class="service-media service-carousel">
-              <img class="active" loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5d5f2058a79cbf000111652a/1586842536251-IY8XEBZ4JINBCSKZKAHT/FaceMassage.jpg" alt="Facial massage spa service">
-              <img loading="lazy" src="https://i.pinimg.com/1200x/84/cd/b7/84cdb7509c5bacdc80bdf1336985d900.jpg" alt="Relaxing facial spa treatment">
-              <img loading="lazy" src="https://i.pinimg.com/1200x/df/fe/bd/dffebdc4792665f4680cdfb0480fd95c.jpg" alt="Facial wellness service in spa">
-              <img loading="lazy" src="https://i.pinimg.com/736x/a7/5e/f0/a75ef039455f894cd59d004e84b09e5a.jpg" alt="Calming facial spa atmosphere">
-              <span class="service-badge">Carousel</span>
+              <img class="active" loading="lazy" src="https://images.squarespace-cdn.com/content/v1/5d5f2058a79cbf000111652a/1586842536251-IY8XEBZ4JINBCSKZKAHT/FaceMassage.jpg" alt="Facial spa treatment">
+              <img loading="lazy" src="https://i.pinimg.com/1200x/84/cd/b7/84cdb7509c5bacdc80bdf1336985d900.jpg" alt="Relaxing facial treatment">
+              <img loading="lazy" src="https://i.pinimg.com/1200x/df/fe/bd/dffebdc4792665f4680cdfb0480fd95c.jpg" alt="Facial wellness service">
+              <span class="service-badge">Skin Care</span>
             </div>
             <div class="service-body">
               <h3>Facial</h3>
-              <p>A gentle face-focused relaxation service for guests seeking a refreshed, polished and calming spa moment.</p>
-              <div class="service-meta">
-                <div class="meta-box"><span>Duration</span><strong>Please call to confirm</strong></div>
-                <div class="meta-box"><span>Pricing</span><strong>Call for Pricing</strong></div>
+              <div class="treatment-tags" aria-label="Facial treatment options">
+                <span class="treatment-tag">Oxygen Facial</span>
+                <span class="treatment-tag">Deep Clean</span>
+                <span class="treatment-tag">Anti-Aging</span>
+                <span class="treatment-tag">Deep Hydrating</span>
               </div>
-              <ul class="service-list">
-                <li>Ideal for a softer, beauty-focused pause.</li>
-                <li>Designed to feel calm, clean and refined.</li>
-              </ul>
-              <a href="#booking" class="btn">Request This Service</a>
+              <div class="price-list" aria-label="Facial prices">
+                <div class="price-row"><span>30 Min</span><strong>$60</strong></div>
+                <div class="price-row"><span>45 Min</span><strong>$70</strong></div>
+                <div class="price-row"><span>60 Min</span><strong>$90</strong></div>
+                <div class="price-row"><span>90 Min</span><strong>$130</strong></div>
+              </div>
+              <a href="#booking" class="btn">Book a Facial</a>
             </div>
           </article>
 
-          <!-- Deep Tissue Massage -->
+          <!-- Lymphatic Drainage -->
           <article class="service-card reveal">
             <div class="service-media service-carousel">
-              <img class="active" loading="lazy" src="https://i.pinimg.com/736x/86/47/ef/8647ef5b51553a8e57ca32e6b2ec74f0.jpg" alt="Deep tissue massage service">
-              <img loading="lazy" src="https://i.pinimg.com/736x/a4/c5/f0/a4c5f0fb2704f75aa94a247e18a4af14.jpg" alt="Deep tissue massage in spa setting">
-              <img loading="lazy" src="https://i.pinimg.com/736x/85/e4/e0/85e4e0455458e84ff5b39582cf45a340.jpg" alt="Focused deep tissue massage">
-              <img loading="lazy" src="https://i.pinimg.com/1200x/cb/a2/38/cba2382cc3ca28d467b85d939121c8ef.jpg" alt="Deep tissue massage relaxation">
-              <span class="service-badge">Carousel</span>
+              <img class="active" loading="lazy" src="https://i.pinimg.com/736x/86/47/ef/8647ef5b51553a8e57ca32e6b2ec74f0.jpg" alt="Lymphatic drainage massage treatment">
+              <img loading="lazy" src="https://i.pinimg.com/736x/a4/c5/f0/a4c5f0fb2704f75aa94a247e18a4af14.jpg" alt="Gentle lymphatic massage in a spa">
+              <img loading="lazy" src="https://i.pinimg.com/736x/85/e4/e0/85e4e0455458e84ff5b39582cf45a340.jpg" alt="Wellness massage treatment">
+              <span class="service-badge">Wellness</span>
             </div>
             <div class="service-body">
-              <h3>Deep Tissue Massage</h3>
-              <p>A more focused bodywork option for guests who prefer firmer pressure and attention to areas that feel tight or overworked.</p>
-              <div class="service-meta">
-                <div class="meta-box"><span>Duration</span><strong>Please call to confirm</strong></div>
-                <div class="meta-box"><span>Pricing</span><strong>Call for Pricing</strong></div>
+              <h3>Lymphatic Drainage</h3>
+              <p>A gentle, rhythmic wellness treatment offered in several session lengths for a personalized visit.</p>
+              <div class="price-list" aria-label="Lymphatic drainage prices">
+                <div class="price-row"><span>30 Min</span><strong>$65</strong></div>
+                <div class="price-row"><span>45 Min</span><strong>$80</strong></div>
+                <div class="price-row"><span>60 Min</span><strong>$90</strong></div>
+                <div class="price-row"><span>90 Min</span><strong>$130</strong></div>
               </div>
-              <ul class="service-list">
-                <li>Helpful for shoulder, back or workday tension.</li>
-                <li>Firm yet professional relaxation approach.</li>
-              </ul>
-              <a href="#booking" class="btn">Request This Service</a>
+              <a href="#booking" class="btn">Book Lymphatic Drainage</a>
             </div>
           </article>
 
-          <!-- Couple Massage -->
+          <!-- Classic Scalp Treatment -->
           <article class="service-card reveal">
             <div class="service-media service-carousel">
-              <img class="active" loading="lazy" src="https://i.pinimg.com/736x/ac/a6/69/aca669d5a5fe654a32f0f6b3c5138275.jpg" alt="Couple massage spa room">
-              <img loading="lazy" src="https://i.pinimg.com/736x/8d/88/02/8d88021e4d32ed8abd1452b7f48ce00b.jpg" alt="Couple massage relaxation room">
-              <img loading="lazy" src="https://i.pinimg.com/736x/70/cb/60cfa74373d9c0a2e39d478f489e.jpg" alt="Private couple massage setting">
-              <img loading="lazy" src="https://i.pinimg.com/1200x/07/13/62/0713626b6e91eb53a1b7b60a3d0dfd8e.jpg" alt="Couple massage wellness experience">
-              <span class="service-badge">Carousel</span>
+              <img class="active" loading="lazy" src="https://i.pinimg.com/736x/09/31/eb/0931ebab4602ec51313b49b72bb10c1e.jpg" alt="Classic scalp treatment">
+              <img loading="lazy" src="https://i.pinimg.com/736x/a6/b4/26/a6b4261509788cc843fafcac56d38c51.jpg" alt="Relaxing scalp massage treatment">
+              <img loading="lazy" src="https://i.pinimg.com/1200x/2b/81/ad/2b81ad4a2b574b076d5676db9ba13418.jpg" alt="Scalp and head wellness treatment">
+              <span class="service-badge">Scalp Care</span>
             </div>
             <div class="service-body">
-              <h3>Couple Massage</h3>
-              <p>A shared spa experience for two guests who want to relax together in a calm, private and comfortable setting.</p>
-              <div class="service-meta">
-                <div class="meta-box"><span>Duration</span><strong>Please call to confirm</strong></div>
-                <div class="meta-box"><span>Pricing</span><strong>Call for Pricing</strong></div>
+              <h3>Classic Scalp Treatment</h3>
+              <p class="service-subtitle">Including neck and shoulder massage</p>
+              <div class="price-list" aria-label="Scalp treatment and therapy prices">
+                <div class="price-row"><span>60 Min Classic Scalp Treatment</span><strong>$99</strong></div>
+                <div class="price-row"><span>60 Min Scalp Cleansing Treatment</span><strong>$89</strong></div>
+                <div class="price-row"><span>Cupping Therapy</span><strong>$30</strong></div>
+                <div class="price-row"><span>Gua Sha Treatment</span><strong>$30</strong></div>
               </div>
-              <ul class="service-list">
-                <li>Designed for pairs, partners or friends.</li>
-                <li>Private, warm and easy to schedule by phone.</li>
-              </ul>
-              <a href="#booking" class="btn">Request This Service</a>
+              <a href="#booking" class="btn">Book Scalp Treatment</a>
             </div>
           </article>
 
-          <!-- Chair Massage -->
+          <!-- Special Oils -->
           <article class="service-card reveal">
             <div class="service-media">
-              <img class="active" loading="lazy" src="https://i.pinimg.com/736x/f1/ee/df/f1eedfc8c7b5322308d56bda63212a19.jpg" alt="Chair massage service">
-              <span class="service-badge">Focused</span>
+              <img class="active" loading="lazy" src="https://i.pinimg.com/1200x/84/cd/b7/84cdb7509c5bacdc80bdf1336985d900.jpg" alt="Spa treatment oils and aromatherapy">
+              <span class="service-badge">Add-On</span>
             </div>
             <div class="service-body">
-              <h3>Chair Massage</h3>
-              <p>A convenient focused massage option for guests who want a simpler, accessible and time-conscious relaxation visit.</p>
-              <div class="service-meta">
-                <div class="meta-box"><span>Duration</span><strong>Please call to confirm</strong></div>
-                <div class="meta-box"><span>Pricing</span><strong>Call for Pricing</strong></div>
+              <h3>Add Special Oil</h3>
+              <p>Enhance an eligible treatment with one of the following specialty oil add-ons.</p>
+              <div class="price-list" aria-label="Special oil add-on prices">
+                <div class="price-row"><span>Chinese Medicinal Oil</span><strong>$10</strong></div>
+                <div class="price-row"><span>Essential Oil</span><strong>$10</strong></div>
+                <div class="price-row"><span>CBD Oil</span><strong>$20</strong></div>
               </div>
-              <ul class="service-list">
-                <li>Great for a shorter wellness pause.</li>
-                <li>Comfortable, practical and easy to request.</li>
-              </ul>
-              <a href="#booking" class="btn">Request This Service</a>
-            </div>
-          </article>
-
-          <!-- Four Hands -->
-          <article class="service-card reveal">
-            <div class="service-media service-carousel">
-              <img class="active" loading="lazy" src="https://i.pinimg.com/736x/09/31/eb/0931ebab4602ec51313b49b72bb10c1e.jpg" alt="Four hands massage spa service">
-              <img loading="lazy" src="https://i.pinimg.com/736x/a6/b4/26/a6b4261509788cc843fafcac56d38c51.jpg" alt="Four hands massage relaxation">
-              <img loading="lazy" src="https://i.pinimg.com/1200x/2b/81/ad/2b81ad4a2b574b076d5676db9ba13418.jpg" alt="Four hands massage wellness service">
-              <span class="service-badge">Carousel</span>
-            </div>
-            <div class="service-body">
-              <h3>Four Hands Massage</h3>
-              <p>A coordinated relaxation experience for guests looking for a more immersive, flowing and elevated massage session.</p>
-              <div class="service-meta">
-                <div class="meta-box"><span>Duration</span><strong>Please call to confirm</strong></div>
-                <div class="meta-box"><span>Pricing</span><strong>Call for Pricing</strong></div>
-              </div>
-              <ul class="service-list">
-                <li>Best for a fuller, more luxurious spa feeling.</li>
-                <li>Availability should be confirmed in advance.</li>
-              </ul>
-              <a href="#booking" class="btn">Request This Service</a>
+              <p class="price-note">Special oils are add-ons and should be selected with a massage or other eligible service.</p>
+              <a href="#booking" class="btn">Add to Appointment</a>
             </div>
           </article>
         </div>
@@ -1889,14 +1934,42 @@
             <div class="field full">
               <label for="service">Service</label>
               <select id="service" name="service">
-                <option selected disabled>Select a service</option>
-                <option>Foot Reflexology</option>
-                <option>Body Work</option>
-                <option>Facial</option>
-                <option>Deep Tissue Massage</option>
-                <option>Couple Massage</option>
-                <option>Chair Massage</option>
-                <option>Four Hands Massage</option>
+                <option selected disabled>Select a service and duration</option>
+                <optgroup label="Body Massage">
+                  <option>Body Massage — 30 Min — $60</option>
+                  <option>Body Massage — 45 Min — $70</option>
+                  <option>Body Massage — 60 Min — $80</option>
+                  <option>Body Massage — 90 Min — $120</option>
+                  <option>Body Massage — 120 Min — $160</option>
+                </optgroup>
+                <optgroup label="Foot Reflexology">
+                  <option>Foot Reflexology — 30 Min — $50</option>
+                  <option>Foot Reflexology — 45 Min — $60</option>
+                  <option>Foot Reflexology — 60 Min — $70</option>
+                </optgroup>
+                <optgroup label="Facial">
+                  <option>Facial — 30 Min — $60</option>
+                  <option>Facial — 45 Min — $70</option>
+                  <option>Facial — 60 Min — $90</option>
+                  <option>Facial — 90 Min — $130</option>
+                </optgroup>
+                <optgroup label="Lymphatic Drainage">
+                  <option>Lymphatic Drainage — 30 Min — $65</option>
+                  <option>Lymphatic Drainage — 45 Min — $80</option>
+                  <option>Lymphatic Drainage — 60 Min — $90</option>
+                  <option>Lymphatic Drainage — 90 Min — $130</option>
+                </optgroup>
+                <optgroup label="Scalp Treatments & Therapies">
+                  <option>Classic Scalp Treatment — 60 Min — $99</option>
+                  <option>Scalp Cleansing Treatment — 60 Min — $89</option>
+                  <option>Cupping Therapy — $30</option>
+                  <option>Gua Sha Treatment — $30</option>
+                </optgroup>
+                <optgroup label="Special Oil Add-Ons">
+                  <option>Chinese Medicinal Oil Add-On — $10</option>
+                  <option>Essential Oil Add-On — $10</option>
+                  <option>CBD Oil Add-On — $20</option>
+                </optgroup>
               </select>
             </div>
 
@@ -1916,7 +1989,7 @@
             </div>
 
             <p class="form-note">
-              This form is a front-end display only. Please call 954-928-9888 to confirm service availability, duration and pricing.
+              This form is a front-end display only. Please call 954-928-9888 to confirm appointment availability and add-on eligibility.
             </p>
 
             <div class="field full">
