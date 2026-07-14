@@ -648,7 +648,7 @@
     }
 
     .experience-card {
-      min-height: 330px;
+      min-height: 390px;
       border-radius: var(--radius-xl);
       padding: 1.5rem;
       display: flex;
@@ -656,47 +656,88 @@
       justify-content: space-between;
       overflow: hidden;
       position: relative;
-      background: rgba(255,255,255,0.68);
-      border: 1px solid rgba(180,136,63,0.16);
-      box-shadow: 0 20px 54px rgba(91,66,34,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      isolation: isolate;
+      background: #cdbda7;
+      border: 1px solid rgba(255,255,255,0.46);
+      box-shadow: 0 20px 54px rgba(91,66,34,0.14);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
 
     .experience-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 26px 70px rgba(91,66,34,0.13);
+      transform: translateY(-7px);
+      box-shadow: 0 30px 78px rgba(91,66,34,0.22);
+    }
+
+    .experience-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(30,21,13,0.08) 0%, rgba(30,21,13,0.22) 38%, rgba(30,21,13,0.88) 100%),
+        linear-gradient(135deg, rgba(231,201,130,0.18), transparent 48%);
     }
 
     .experience-card::after {
       content: "";
       position: absolute;
-      right: -20px;
-      bottom: -20px;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 1px solid rgba(180,136,63,0.16);
-      background: rgba(223,232,215,0.38);
+      inset: 10px;
+      border-radius: calc(var(--radius-xl) - 10px);
+      border: 1px solid rgba(255,255,255,0.24);
+      pointer-events: none;
+    }
+
+    .experience-image {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s ease;
+    }
+
+    .experience-card:hover .experience-image {
+      transform: scale(1.055);
     }
 
     .step-number {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      position: relative;
+      z-index: 1;
       font-family: "Cormorant Garamond", serif;
-      font-size: 3.1rem;
+      font-size: 2.35rem;
       line-height: 1;
-      color: var(--gold);
+      color: #fff8e8;
+      background: rgba(37,26,16,0.34);
+      border: 1px solid rgba(255,255,255,0.42);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+
+    .experience-content {
+      position: relative;
+      z-index: 1;
+      padding-top: 5rem;
     }
 
     .experience-card h3 {
       font-family: "Cormorant Garamond", serif;
-      font-size: 2rem;
-      line-height: 1;
-      color: var(--brown);
+      font-size: 2.15rem;
+      line-height: 0.96;
+      color: #fffaf1;
+      text-shadow: 0 2px 18px rgba(0,0,0,0.28);
     }
 
     .experience-card p {
-      color: var(--muted);
+      color: rgba(255,255,255,0.82);
       margin-top: 0.8rem;
       font-size: 0.95rem;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.22);
     }
 
     /* Services */
@@ -927,16 +968,20 @@
       min-height: 360px;
       padding: 1.5rem;
       position: relative;
+      isolation: isolate;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      border: 1px solid rgba(180,136,63,0.16);
+      border: 1px solid rgba(255,255,255,0.4);
       box-shadow: var(--shadow);
-      background:
-        radial-gradient(circle at 22% 18%, rgba(200,164,93,0.2), transparent 18rem),
-        radial-gradient(circle at 82% 78%, rgba(223,232,215,0.95), transparent 20rem),
-        linear-gradient(145deg, #fff, #f2e3cf);
+      background: #cdbda7;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .gallery-tile:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 78px rgba(91,66,34,0.2);
     }
 
     .gallery-tile.large {
@@ -952,28 +997,65 @@
       content: "";
       position: absolute;
       inset: 0;
+      z-index: -1;
       background:
-        linear-gradient(115deg, transparent 0 48%, rgba(180,136,63,0.12) 48% 49%, transparent 49%),
-        repeating-linear-gradient(0deg, transparent 0 56px, rgba(180,136,63,0.05) 56px 57px);
+        linear-gradient(180deg, rgba(25,18,11,0.05) 15%, rgba(25,18,11,0.28) 55%, rgba(25,18,11,0.86) 100%),
+        linear-gradient(120deg, rgba(231,201,130,0.18), transparent 46%);
     }
 
-    .gallery-tile h3,
-    .gallery-tile p {
+    .gallery-tile::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: calc(var(--radius-xl) - 12px);
+      border: 1px solid rgba(255,255,255,0.22);
+      pointer-events: none;
+    }
+
+    .gallery-image {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1s ease;
+    }
+
+    .gallery-tile:hover .gallery-image {
+      transform: scale(1.05);
+    }
+
+    .gallery-copy {
       position: relative;
       z-index: 1;
+      max-width: 620px;
+      padding: clamp(0.25rem, 1vw, 0.8rem);
+    }
+
+    .gallery-kicker {
+      display: inline-flex;
+      margin-bottom: 0.75rem;
+      color: #f5d58e;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
     .gallery-tile h3 {
       font-family: "Cormorant Garamond", serif;
       font-size: clamp(2rem, 4vw, 3.5rem);
       line-height: 0.95;
-      color: var(--brown);
+      color: #fffaf1;
+      text-shadow: 0 3px 22px rgba(0,0,0,0.28);
     }
 
     .gallery-tile p {
       margin-top: 0.8rem;
-      color: var(--muted);
+      color: rgba(255,255,255,0.82);
       max-width: 560px;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.24);
     }
 
     /* Booking */
@@ -1815,32 +1897,60 @@
 
         <div class="experience-grid">
           <article class="experience-card reveal">
+            <img
+              class="experience-image"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+              src="https://i.pinimg.com/736x/82/3e/8e/823e8eeb16488687283be44e2d080fc1.jpg"
+              alt="Warm neutral luxury spa reception for a calm arrival"
+            >
             <span class="step-number">01</span>
-            <div>
+            <div class="experience-content">
               <h3>Calm Arrival</h3>
               <p>A warm first impression with clear guidance, gentle pacing and a relaxed tone.</p>
             </div>
           </article>
 
           <article class="experience-card reveal">
+            <img
+              class="experience-image"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+              src="https://i.pinimg.com/736x/90/e4/53/90e45360aab744a09a41836d2d85ca8b.jpg"
+              alt="Private boutique massage room with soft ambient lighting"
+            >
             <span class="step-number">02</span>
-            <div>
+            <div class="experience-content">
               <h3>Private Space</h3>
               <p>A composed setting that supports comfort, discretion and personal ease.</p>
             </div>
           </article>
 
           <article class="experience-card reveal">
+            <img
+              class="experience-image"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+              src="https://i.pinimg.com/736x/f2/2b/5a/f22b5ad40f4a4196fd7a1d989846d5e3.jpg"
+              alt="Refined spa treatment room with natural stone, warm wood and greenery"
+            >
             <span class="step-number">03</span>
-            <div>
+            <div class="experience-content">
               <h3>Mindful Details</h3>
               <p>Soft light, warm textures and clean presentation create a refined spa mood.</p>
             </div>
           </article>
 
           <article class="experience-card reveal">
+            <img
+              class="experience-image"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+              src="https://i.pinimg.com/736x/0e/1a/8d/0e1a8db32775bc63c1333ad6fbbf8156.jpg"
+              alt="Quiet spa relaxation room with sheer curtains, candles and greenery"
+            >
             <span class="step-number">04</span>
-            <div>
+            <div class="experience-content">
               <h3>Restful Finish</h3>
               <p>Leave with a calmer pace and a gentle transition back into your day.</p>
             </div>
@@ -1861,19 +1971,49 @@
 
         <div class="gallery-grid">
           <article class="gallery-tile large reveal">
-            <h3>Designed for a slower pace.</h3>
-            <p>A serene environment where guests can pause, breathe and enjoy a quieter wellness moment.</p>
+            <img
+              class="gallery-image"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+              src="https://i.pinimg.com/736x/3e/71/f9/3e71f9651d38768d7ac09bdaff8b1d0b.jpg"
+              alt="Serene luxury spa room designed for a slower and quieter pace"
+            >
+            <div class="gallery-copy">
+              <span class="gallery-kicker">Quiet Wellness</span>
+              <h3>Designed for a slower pace.</h3>
+              <p>A serene environment where guests can pause, breathe and enjoy a quieter wellness moment.</p>
+            </div>
           </article>
 
           <div class="gallery-stack">
             <article class="gallery-tile reveal">
-              <h3>Warm privacy.</h3>
-              <p>Soft tones and subtle details create a comfortable boutique feeling.</p>
+              <img
+                class="gallery-image"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                src="https://i.pinimg.com/736x/11/f5/a1/11f5a1ec9637d097c3099577a2afaf05.jpg"
+                alt="Warm beige boutique reception with soft neutral furnishings"
+              >
+              <div class="gallery-copy">
+                <span class="gallery-kicker">Boutique Comfort</span>
+                <h3>Warm privacy.</h3>
+                <p>Soft tones and subtle details create a comfortable boutique feeling.</p>
+              </div>
             </article>
 
             <article class="gallery-tile reveal">
-              <h3>Clean refinement.</h3>
-              <p>An uncluttered, polished presentation supports trust and relaxation.</p>
+              <img
+                class="gallery-image"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                src="https://i.pinimg.com/736x/5f/d3/39/5fd33975181179ceb586da3333b7af96.jpg"
+                alt="Clean luxury spa reception with warm architectural lighting"
+              >
+              <div class="gallery-copy">
+                <span class="gallery-kicker">Polished Simplicity</span>
+                <h3>Clean refinement.</h3>
+                <p>An uncluttered, polished presentation supports trust and relaxation.</p>
+              </div>
             </article>
           </div>
         </div>
